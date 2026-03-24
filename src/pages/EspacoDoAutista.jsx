@@ -228,7 +228,7 @@ export default function EspacoDoAutista() {
               <div className="flex flex-wrap gap-4">
                 <Button
                   variant="secondary"
-                  className="text-primary-600 hover:bg-gray-100"
+                  className="text-primary-600 hover:bg-gray-100 hover:text-orange-500"
                   onClick={() => window.open('https://www.instagram.com/espaco_do_autista_ce/', '_blank')}
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

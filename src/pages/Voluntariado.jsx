@@ -4,7 +4,7 @@ import ScrollReveal from '../components/ScrollReveal';
 
 export default function Voluntariado() {
   const handleFormClick = () => {
-    window.open('FORMS', '_blank');
+    window.open('https://forms.gle/P7qVKNnAw6ze6FDv7', '_blank');
   };
 
   return (
@@ -385,7 +385,7 @@ export default function Voluntariado() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-accent-500 hover:bg-gray-100 mb-6"
+                className="bg-white text-orange-500 hover:bg-gray-100 mb-6"
                 onClick={handleFormClick}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -393,9 +393,6 @@ export default function Voluntariado() {
                 </svg>
                 Preencher cadastro de voluntário
               </Button>
-              <p className="text-sm text-white/80">
-                Link do formulário: <span className="font-mono">[FORMS]</span>
-              </p>
             </div>
           </ScrollReveal>
 

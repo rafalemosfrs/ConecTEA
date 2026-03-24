@@ -221,11 +221,6 @@ export default function Doacoes() {
         </span>
       </li>
     </ul>
-
-    <p className="text-sm text-gray-600 mt-4">
-      Entre em contato para saber como realizar a doação de materiais:{" "}
-      <span className="font-medium">[INSERIR CONTATO]</span>
-    </p>
   </div>
 </Card>
           </ScrollReveal>
