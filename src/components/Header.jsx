@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logoConecTEA from '../assets/img/logo-conectea.png';
+import logoConecTEA from '../assets/img/logo-conectea-sem-fundo.png';
 
 export default function Header({ currentPage, onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
