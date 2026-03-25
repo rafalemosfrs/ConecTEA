@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import ScrollReveal from '../components/ScrollReveal';
+import simboloconectea from '../assets/img/simbolo-conectea.png';
 
 export default function ConecTEA() {
   return (
@@ -7,6 +8,13 @@ export default function ConecTEA() {
       <section className="bg-gradient-to-br from-primary-50 to-blue-50 py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center slide-in">
+                        <div className="w-32 h-32 bg-white rounded-2xl shadow-lg flex items-center justify-center border-4 border-primary-200 mx-auto mb-8 overflow-hidden">
+                          <img
+                            src={simboloconectea}
+                            alt="Logo do ConecTEA"
+                            className="w-full h-full object-contain p-2"
+                          />
+                        </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Sobre o ConecTEA
             </h1>
@@ -43,63 +51,6 @@ export default function ConecTEA() {
               <p className="text-gray-700 leading-relaxed">
                 Desenvolver uma plataforma digital que facilite o acesso a informações sobre o Transtorno do Espectro Autista (TEA), fortaleça a comunicação institucional do Espaço do Autista, organize o processo de captação de voluntários e incentive doações, contribuindo para a sustentabilidade e ampliação dos atendimentos oferecidos pela Associação.
               </p>
-            </Card>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            <Card>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                O que será desenvolvido
-              </h2>
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-primary-600 font-bold">1</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Site institucional</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Apresentação clara da missão, história e atuação do Espaço do Autista, com design acessível e responsivo.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-primary-600 font-bold">2</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Sistema de voluntariado</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Formulário estruturado de cadastro de voluntários, facilitando a triagem e análise pela equipe da Associação.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-primary-600 font-bold">3</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Área de informações sobre TEA</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Seção de perguntas frequentes e orientações gerais, sempre com linguagem responsável e não prescritiva.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-primary-600 font-bold">4</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Facilitação de doações</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      Página dedicada a orientar sobre como contribuir financeiramente ou com materiais para a Associação.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </Card>
           </ScrollReveal>
 

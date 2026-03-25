@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Card from '../components/Card';
 import ScrollReveal from '../components/ScrollReveal';
+import Button from '../components/Button';
 
 function FAQItem({ question, answer, isOpen, onClick }) {
   return (
@@ -31,7 +32,7 @@ function FAQItem({ question, answer, isOpen, onClick }) {
   );
 }
 
-export default function FAQ() {
+export default function FAQ({ onNavigate }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [openIndex, setOpenIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
@@ -56,11 +57,51 @@ export default function FAQ() {
       },
       {
         question: 'Quais são as principais necessidades atuais?',
-        answer: 'Atualmente, nossa maior necessidade é ampliar a equipe multidisciplinar, especialmente nas áreas de psicologia, fonoaudiologia e neurologia. Também precisamos de apoio administrativo (administração, contabilidade, jurídico), tecnologia e comunicação. Além disso, a sustentabilidade financeira através de doações é fundamental para manter e expandir nossos serviços.',
+        answer: 'Atualmente, nossa maior necessidade é ampliar a equipe multidisciplinar, especialmente nas áreas de psicologia, fonoaudiologia e neurologia. Também precisamos de apoio administrativo, tecnologia e comunicação. Além disso, a sustentabilidade financeira por meio de doações é fundamental para manter e expandir nossos serviços.',
       },
       {
         question: 'Como posso apoiar além de doações?',
-        answer: 'Você pode se voluntariar! Precisamos de profissionais e estudantes de diversas áreas: saúde (psicologia, fonoaudiologia, terapia ocupacional, fisioterapia, neurologia, etc.), apoio administrativo, tecnologia, comunicação e marketing. Também valorizamos muito o apoio de familiares, amigos de pessoas autistas e pessoas autistas adultas que queiram compartilhar suas experiências.',
+        answer: 'Você pode se voluntariar. Precisamos de profissionais e estudantes de diversas áreas: saúde, apoio administrativo, tecnologia, comunicação e marketing. Também valorizamos muito o apoio de familiares, amigos de pessoas autistas e pessoas autistas adultas que queiram compartilhar suas experiências.',
+      },
+      {
+        question: 'Como faço para entrar em contato sobre atendimento?',
+        answer: 'O ideal é falar diretamente com a equipe da Associação pelos canais de contato divulgados no site ou nas redes sociais. Assim, você consegue receber orientações atualizadas sobre disponibilidade, documentação necessária e próximos passos.',
+      },
+      {
+        question: 'O Espaço do Autista atende apenas crianças?',
+        answer: 'Não. A Associação também acolhe adultos autistas. Isso é especialmente importante porque ainda existem poucos serviços voltados para essa faixa etária, e o Espaço do Autista busca contribuir para reduzir essa lacuna.',
+      },
+      {
+        question: 'A Associação oferece apoio às famílias?',
+        answer: 'Sim. O cuidado com a pessoa autista também envolve escuta, orientação e acolhimento familiar. O Espaço do Autista reconhece que a rede de apoio é parte essencial do processo de cuidado e inclusão.',
+      },
+      {
+        question: 'O atendimento é igual para todas as pessoas?',
+        answer: 'Não. Cada pessoa autista tem necessidades, ritmos e características próprias. Por isso, o atendimento deve ser pensado de forma individualizada, respeitando o perfil de suporte e as demandas de cada caso.',
+      },
+      {
+        question: 'É possível ajudar com doação de materiais?',
+        answer: 'Sim. Além de contribuições financeiras, a Associação também pode receber materiais úteis para atividades terapêuticas, organização do espaço e rotina de atendimento. O ideal é confirmar antes quais itens são mais necessários no momento.',
+      },
+      {
+        question: 'Como acompanho novidades e ações da Associação?',
+        answer: 'Uma boa forma de acompanhar novidades é seguir os canais oficiais da instituição, como redes sociais e contatos divulgados no site. Por esses meios, a comunidade pode acompanhar campanhas, atividades e formas de apoio.',
+      },
+      {
+        question: 'A Associação aceita voluntários de áreas não clínicas?',
+        answer: 'Sim. Além das áreas de saúde, o Espaço do Autista também precisa de apoio em administração, contabilidade, jurídico, tecnologia, comunicação e organização institucional. Essas frentes fortalecem o funcionamento da Associação.',
+      },
+      {
+        question: 'Posso conhecer a Associação antes de me voluntariar ou doar?',
+        answer: 'Em muitos casos, esse alinhamento pode ser feito diretamente com a equipe responsável. O mais indicado é entrar em contato, demonstrar interesse e verificar qual é a melhor forma de aproximação, conforme a rotina e a disponibilidade da instituição.',
+      },
+      {
+        question: 'Quais profissionais são mais necessários atualmente?',
+        answer: 'De acordo com as informações já apresentadas no site, há necessidade especial de ampliar a equipe em áreas como psicologia, fonoaudiologia e neurologia. Ainda assim, outras áreas de apoio também são muito importantes para a continuidade do trabalho.',
+      },
+      {
+        question: 'O Espaço do Autista pode receber parcerias com empresas ou projetos?',
+        answer: 'Sim. Parcerias institucionais podem ajudar com doações, divulgação, apoio técnico, serviços especializados e ações sociais. Esse tipo de colaboração pode fortalecer bastante a sustentabilidade e o alcance da Associação.',
       },
     ],
     conectea: [
@@ -88,15 +129,55 @@ export default function FAQ() {
         question: 'Como é feita a análise dos cadastros?',
         answer: 'A análise dos cadastros de voluntários é feita diretamente pela equipe responsável do Espaço do Autista. Após o preenchimento do formulário, a Associação avalia o perfil, a disponibilidade e as necessidades atuais, entrando em contato com os candidatos selecionados para alinhar os próximos passos.',
       },
+      {
+        question: 'Qual é o principal objetivo do ConecTEA?',
+        answer: 'O principal objetivo é usar a tecnologia para fortalecer a comunicação institucional, organizar informações importantes, apoiar a mobilização de voluntários e incentivar doações para o Espaço do Autista.',
+      },
+      {
+        question: 'O ConecTEA substitui o contato direto com a Associação?',
+        answer: 'Não. O projeto facilita o acesso à informação e pode aproximar a comunidade da instituição, mas decisões sobre atendimento, triagem, voluntariado e rotina interna continuam sendo responsabilidade da Associação.',
+      },
+      {
+        question: 'Quem é responsável pelas informações institucionais publicadas no site?',
+        answer: 'O projeto oferece a estrutura digital, mas informações operacionais sobre funcionamento, disponibilidade, serviços e atualizações da instituição dependem do alinhamento com o Espaço do Autista.',
+      },
+      {
+        question: 'O ConecTEA coleta dados sensíveis de crianças?',
+        answer: 'Não. A proposta do site institucional não é coletar dados sensíveis de crianças. Quando houver formulários específicos, eles devem ser usados com cuidado, finalidade clara e análise pela equipe responsável da Associação.',
+      },
+      {
+        question: 'Posso fazer doações diretamente pelo site?',
+        answer: 'O site pode orientar sobre formas de contribuição e encaminhar a pessoa interessada para os canais adequados. A gestão das doações, no entanto, é de responsabilidade da instituição parceira.',
+      },
+      {
+        question: 'O ConecTEA pode continuar existindo depois do período acadêmico?',
+        answer: 'Como projeto acadêmico, ele nasce com escopo e prazo definidos. Ainda assim, os materiais, aprendizados e soluções desenvolvidas podem servir de base para continuidade, melhorias futuras ou novas etapas do trabalho.',
+      },
+      {
+        question: 'O site foi pensado para facilitar o acesso à informação?',
+        answer: 'Sim. Uma das propostas do ConecTEA é organizar conteúdos de forma clara, simples e acessível, ajudando famílias, voluntários e apoiadores a encontrar informações importantes com mais facilidade.',
+      },
+      {
+        question: 'O ConecTEA é voltado apenas para quem já conhece o autismo?',
+        answer: 'Não. O projeto também busca acolher quem está começando a buscar informações, oferecendo conteúdos introdutórios, perguntas frequentes e caminhos de contato com a Associação.',
+      },
+      {
+        question: 'Posso enviar sugestões de melhoria para o projeto?',
+        answer: 'Sim. Sugestões, correções e observações podem ser muito úteis para aprimorar o conteúdo e a experiência do site. O ideal é usar os canais de contato disponibilizados para encaminhar essas contribuições.',
+      },
+      {
+        question: 'O ConecTEA representa orientação médica ou diagnóstico?',
+        answer: 'Não. O conteúdo do projeto tem caráter educativo e institucional. Ele não substitui avaliação clínica, diagnóstico nem acompanhamento profissional especializado.',
+      },
     ],
     autismo: [
       {
         question: 'O que é TEA?',
-        answer: 'TEA é a sigla para Transtorno do Espectro Autista. É uma condição do neurodesenvolvimento que afeta a forma como a pessoa se comunica, interage socialmente e processa informações sensoriais. O termo "espectro" indica que o autismo se manifesta de formas muito variadas, com diferentes níveis de necessidade de suporte.',
+        answer: 'TEA é a sigla para Transtorno do Espectro Autista. É uma condição do neurodesenvolvimento que afeta a forma como a pessoa se comunica, interage socialmente e processa informações sensoriais. O termo “espectro” indica que o autismo se manifesta de formas muito variadas, com diferentes níveis de necessidade de suporte.',
       },
       {
-        question: 'Por que se fala em "níveis de suporte"?',
-        answer: 'A classificação por níveis de suporte (1, 2 e 3) substituiu terminologias anteriores e tem como objetivo descrever a intensidade de apoio que a pessoa autista necessita nas atividades diárias. O nível 1 indica necessidade de algum suporte, o nível 2 indica necessidade de suporte substancial, e o nível 3 indica necessidade de suporte muito substancial. É importante lembrar que os níveis não são fixos e podem variar ao longo da vida.',
+        question: 'Por que se fala em “níveis de suporte”?',
+        answer: 'A classificação por níveis de suporte ajuda a descrever a intensidade de apoio que a pessoa autista necessita nas atividades diárias. O nível 1 indica necessidade de algum suporte, o nível 2 indica necessidade de suporte substancial, e o nível 3 indica necessidade de suporte muito substancial. É importante lembrar que os níveis não definem o valor da pessoa e podem variar conforme contexto e fase da vida.',
       },
       {
         question: 'A importância do acolhimento e da intervenção adequada',
@@ -104,11 +185,51 @@ export default function FAQ() {
       },
       {
         question: 'Onde buscar ajuda e avaliação?',
-        answer: 'Para avaliação diagnóstica, é fundamental procurar profissionais habilitados: neurologistas, psiquiatras e psicólogos especializados em TEA. O diagnóstico é clínico e deve ser feito por equipe multidisciplinar. Busque os serviços de saúde pública (CAPS, centros especializados) ou profissionais particulares com experiência comprovada. Lembre-se: este site não oferece diagnóstico ou orientação médica.',
+        answer: 'Para avaliação diagnóstica, é fundamental procurar profissionais habilitados, como neurologistas, psiquiatras e psicólogos com experiência em TEA. O diagnóstico é clínico e pode envolver escuta da família, observação e avaliação multidisciplinar. Este site não oferece diagnóstico nem orientação médica.',
       },
       {
         question: 'Como apoiar uma pessoa autista no dia a dia?',
-        answer: 'Algumas dicas gerais incluem: respeite o tempo e o jeito de cada pessoa; evite ambientes com muitos estímulos sensoriais se a pessoa for sensível; comunique-se de forma clara e direta; valorize os interesses especiais; não force contato visual ou físico; promova a autonomia sempre que possível; escute e aprenda com a própria pessoa autista. Lembre-se: cada pessoa é única, e o melhor apoio é aquele que respeita as necessidades individuais.',
+        answer: 'Algumas orientações gerais incluem respeitar o tempo e o jeito de cada pessoa, comunicar-se com clareza, observar sensibilidades sensoriais, evitar imposições desnecessárias e promover autonomia sempre que possível. O melhor apoio é aquele que considera as necessidades individuais.',
+      },
+      {
+        question: 'Autismo tem cura?',
+        answer: 'O autismo não é uma doença que precise ser “curada”. Trata-se de uma condição do neurodesenvolvimento. O foco deve estar em apoio adequado, acessibilidade, qualidade de vida, autonomia e respeito à pessoa autista.',
+      },
+      {
+        question: 'Toda pessoa autista é igual?',
+        answer: 'Não. Pessoas autistas podem ter perfis muito diferentes entre si. Algumas falam bastante, outras falam pouco ou não falam; algumas gostam de interação social, outras precisam de mais tempo ou previsibilidade. É por isso que se usa a ideia de espectro.',
+      },
+      {
+        question: 'Pessoas autistas podem estudar, trabalhar e ter autonomia?',
+        answer: 'Sim. Com suporte adequado, acessibilidade e respeito às necessidades individuais, muitas pessoas autistas estudam, trabalham, constroem relações e desenvolvem autonomia. O tipo e a intensidade do apoio variam de pessoa para pessoa.',
+      },
+      {
+        question: 'Sensibilidades sensoriais fazem parte do autismo?',
+        answer: 'Podem fazer. Algumas pessoas autistas podem ser mais sensíveis a sons, luzes, cheiros, texturas, toque ou mudanças no ambiente. Outras podem buscar certos estímulos sensoriais. Observar esses aspectos ajuda a construir ambientes mais acolhedores.',
+      },
+      {
+        question: 'O autismo aparece apenas na infância?',
+        answer: 'Os sinais costumam estar presentes desde o desenvolvimento inicial, mas nem sempre são reconhecidos cedo. Em algumas pessoas, especialmente quando houve pouca informação ou muitos mascaramentos, a identificação pode acontecer mais tarde.',
+      },
+      {
+        question: 'É possível receber diagnóstico na adolescência ou na vida adulta?',
+        answer: 'Sim. Muitas pessoas só recebem avaliação e diagnóstico mais tarde. Isso pode acontecer por falta de acesso, desconhecimento sobre o espectro ou porque os sinais foram interpretados de outras formas ao longo do tempo.',
+      },
+      {
+        question: 'Meninas e mulheres autistas podem apresentar sinais diferentes?',
+        answer: 'Podem. Em alguns casos, meninas e mulheres autistas desenvolvem estratégias para mascarar dificuldades ou apresentam características menos reconhecidas pelo olhar tradicional. Por isso, uma avaliação cuidadosa e qualificada é importante.',
+      },
+      {
+        question: 'Toda dificuldade de comportamento é “birra”?',
+        answer: 'Não. Em muitos casos, a pessoa pode estar lidando com sobrecarga sensorial, dificuldade de comunicação, frustração, ansiedade ou mudança inesperada. Em vez de julgamento, o mais importante é buscar compreensão, segurança e apoio adequado.',
+      },
+      {
+        question: 'Rotina e previsibilidade ajudam pessoas autistas?',
+        answer: 'Para muitas pessoas, sim. Saber o que vai acontecer, ter combinados claros e contar com certa previsibilidade pode reduzir ansiedade e facilitar a participação nas atividades. Isso não significa rigidez absoluta, mas organização com sensibilidade.',
+      },
+      {
+        question: 'Como tornar um ambiente mais acolhedor para pessoas autistas?',
+        answer: 'Algumas medidas simples podem ajudar: linguagem clara, redução de ruídos excessivos, respeito ao tempo de resposta, organização visual, previsibilidade nas atividades e abertura para adaptações quando necessário.',
       },
     ],
   };
@@ -123,12 +244,12 @@ export default function FAQ() {
   const getAllFAQs = () => {
     if (activeCategory === 'all') {
       return [
-        ...faqData.instituicao.map(item => ({ ...item, category: 'instituicao' })),
-        ...faqData.conectea.map(item => ({ ...item, category: 'conectea' })),
-        ...faqData.autismo.map(item => ({ ...item, category: 'autismo' })),
+        ...faqData.instituicao.map((item) => ({ ...item, category: 'instituicao' })),
+        ...faqData.conectea.map((item) => ({ ...item, category: 'conectea' })),
+        ...faqData.autismo.map((item) => ({ ...item, category: 'autismo' })),
       ];
     }
-    return faqData[activeCategory].map(item => ({ ...item, category: activeCategory }));
+    return faqData[activeCategory].map((item) => ({ ...item, category: activeCategory }));
   };
 
   const filteredFAQs = getAllFAQs().filter(
@@ -236,19 +357,12 @@ export default function FAQ() {
                 <p className="text-gray-700 mb-6">
                   Entre em contato conosco e teremos prazer em ajudar!
                 </p>
-                <a
-                  href="#contato"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  Entrar em contato
-                </a>
+<Button
+  onClick={() => onNavigate('contato')}
+  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
+>
+  Entrar em contato
+</Button>
               </div>
             </Card>
           </ScrollReveal>

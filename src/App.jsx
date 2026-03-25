@@ -47,8 +47,8 @@ function App() {
         return <Doacoes />;
       case 'voluntariado':
         return <Voluntariado />;
-      case 'faq':
-        return <FAQ />;
+case 'faq':
+  return <FAQ onNavigate={handleNavigate} />;
       case 'contato':
         return <Contato />;
       default:

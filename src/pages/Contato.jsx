@@ -1,7 +1,12 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import ScrollReveal from '../components/ScrollReveal';
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contato() {
   const [formData, setFormData] = useState({
@@ -11,6 +16,8 @@ export default function Contato() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -19,13 +26,47 @@ export default function Contato() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ nome: '', email: '', mensagem: '' });
-    }, 3000);
+    setError('');
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      setError('As chaves do EmailJS não foram configuradas.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.nome,
+          reply_to: formData.email,
+          message: formData.mensagem,
+        },
+        {
+          publicKey: PUBLIC_KEY,
+        }
+      );
+
+      setSubmitted(true);
+      setFormData({
+        nome: '',
+        email: '',
+        mensagem: '',
+      });
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+    } catch (err) {
+      console.error('Erro ao enviar mensagem:', err);
+      setError('Não foi possível enviar sua mensagem. Tente novamente em instantes.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -90,7 +131,7 @@ export default function Contato() {
                   +55 85 98709-3348
                 </p>
                 <p className="text-accent-600 font-medium">
-                 espacodoautista2019@gmail.com
+                  [INSERIR E-MAIL DA Associação]
                 </p>
               </Card>
             </ScrollReveal>
@@ -188,8 +229,16 @@ export default function Contato() {
                         rows="6"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                         placeholder="Digite sua mensagem..."
-                      ></textarea>
+                      />
                     </div>
+
+                    {error && (
+                      <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                        <p className="text-sm text-red-700">
+                          {error}
+                        </p>
+                      </div>
+                    )}
 
                     <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
                       <div className="flex items-start gap-3">
@@ -205,12 +254,13 @@ export default function Contato() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full"
+                      className="w-full disabled:opacity-60 disabled:cursor-not-allowed"
+                      disabled={loading}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>
-                      Enviar mensagem
+                      {loading ? 'Enviando...' : 'Enviar mensagem'}
                     </Button>
                   </form>
                 )}
