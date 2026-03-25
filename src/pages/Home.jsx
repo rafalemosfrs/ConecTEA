@@ -173,7 +173,7 @@ export default function Home({ onNavigate }) {
                   </p>
                   <Button
                     variant="secondary"
-                    className="text-primary-600 hover:bg-gray-100"
+                    className="text-primary-600 hover:bg-gray-100 hover:text-orange-500"
                     onClick={() => onNavigate('doacoes')}
                   >
                     Quero doar
@@ -196,7 +196,7 @@ export default function Home({ onNavigate }) {
                   </p>
                   <Button
                     variant="secondary"
-                    className="bg-primary-500 text-accent-600 hover:bg-gray-100"
+                    className="text-primary-600 hover:bg-gray-100 hover:text-primary-500"
                     onClick={() => onNavigate('voluntariado')}
                   >
                     Quero ser voluntário

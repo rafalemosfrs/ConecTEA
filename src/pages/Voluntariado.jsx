@@ -385,7 +385,7 @@ export default function Voluntariado() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-orange-500 hover:bg-gray-100 mb-6"
+                className="text-primary-600 hover:bg-gray-100 hover:text-orange-500"
                 onClick={handleFormClick}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -106,7 +106,7 @@ export default function Contato() {
                   Para dúvidas sobre o projeto acadêmico
                 </p>
                 <p className="text-primary-600 font-medium">
-                  conectea@gmail.com
+                  conecteatea@gmail.com
                 </p>
               </Card>
             </ScrollReveal>
@@ -131,7 +131,7 @@ export default function Contato() {
                   +55 85 98709-3348
                 </p>
                 <p className="text-accent-600 font-medium">
-                  [INSERIR E-MAIL DA Associação]
+                  espacodoautista2019@gmail.com
                 </p>
               </Card>
             </ScrollReveal>
