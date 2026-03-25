@@ -238,7 +238,7 @@ export default function EspacoDoAutista() {
                 </Button>
                 <Button
                     variant="secondary"
-                    className="text-primary-600 hover:bg-gray-100"
+                    className="text-primary-600 hover:bg-gray-100 hover:text-orange-500"
                     onClick={() => onNavigate('doacoes')}
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
