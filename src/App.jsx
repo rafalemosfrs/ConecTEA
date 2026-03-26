@@ -42,9 +42,9 @@ function App() {
       case 'conectea':
         return <ConecTEA />;
       case 'espaco':
-        return <EspacoDoAutista />;
+        return <EspacoDoAutista onNavigate={handleNavigate}/>;
       case 'doacoes':
-        return <Doacoes />;
+        return <Doacoes onNavigate={handleNavigate} />;
       case 'voluntariado':
         return <Voluntariado />;
 case 'faq':

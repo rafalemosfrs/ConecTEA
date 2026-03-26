@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import ScrollReveal from '../components/ScrollReveal';
 import logoEspacoAutista from '../assets/img/logo-espaço.jpeg';
 
-export default function EspacoDoAutista() {
+export default function EspacoDoAutista({ onNavigate }) {
   return (
     <div className="min-h-screen pt-24 pb-20">
       <section className="bg-gradient-to-br from-primary-50 to-blue-50 py-20 px-4">

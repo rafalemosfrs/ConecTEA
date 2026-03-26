@@ -3,7 +3,7 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import ScrollReveal from '../components/ScrollReveal';
 
-export default function Doacoes() {
+export default function Doacoes({ onNavigate }) {
   const [showFloatingButton, setShowFloatingButton] = useState(false);
 
   useEffect(() => {
